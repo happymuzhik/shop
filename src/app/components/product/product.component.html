@@ -1,0 +1,22 @@
+<div class="product">
+  <div class="product__row">
+    <span class="product__label">Name:</span>
+    <span class="product__value">{{product.name}}</span>
+  </div>
+  <div class="product__row">
+    <span class="product__label">Price:</span>
+    <span class="product__value">{{product.price}}</span>
+  </div>
+  <div class="product__row">
+    <span class="product__label">Description:</span>
+    <span class="product__value">{{product.description}}</span>
+  </div>
+  <div class="product__row">
+    <span class="product__label">
+      {{product.availability}}
+    </span>
+  </div>
+  <div class="product__row">
+    <button [disabled]="!product.isAvailable" (click)="onBuy()">Buy</button>
+  </div>
+</div>
