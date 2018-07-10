@@ -1,30 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Categories } from '../enums/categories.enum';
 import { ProductModel } from './../models/Product';
-
-const Products = [
-  {
-    name: 'Product 1',
-    description: 'Some description',
-    price: '100$',
-    category: Categories.category1,
-    isAvailable: true
-  },
-  {
-    name: 'Product 2',
-    description: 'Some description',
-    price: '200$',
-    category: Categories.category2,
-    isAvailable: false
-  },
-  {
-    name: 'Product 3',
-    description: 'Some description',
-    price: '300$',
-    category: Categories.category2,
-    isAvailable: true
-  },
-];
+import { Products } from './mock-products';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +15,19 @@ export class ProductsService {
 
   getProducts(): ProductModel[] {
     return this.products;
+  }
+
+  findProduct(id: number): ProductModel {
+    return this.products.find((product) => product.id === id);
+  }
+
+  buy(id: number): void {
+    const product = this.findProduct(id);
+    product.isAvailable = false;
+  }
+
+  removeFromCart(id: number): void {
+    const product = this.findProduct(id);
+    product.isAvailable = true;
   }
 }

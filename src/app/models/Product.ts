@@ -1,6 +1,7 @@
 import { Categories } from '../enums/categories.enum';
 
 export interface Product {
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -10,6 +11,7 @@ export interface Product {
 
 export class ProductModel {
 
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -17,6 +19,7 @@ export class ProductModel {
   isAvailable: boolean;
 
   constructor(product: Product) {
+    this.id = product.id;
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;

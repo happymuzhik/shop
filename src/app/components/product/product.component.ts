@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProductModel } from './../../models/Product';
 
 @Component({
@@ -9,11 +9,12 @@ import { ProductModel } from './../../models/Product';
 export class ProductComponent {
 
   @Input() product: ProductModel;
+  @Output() buy: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   onBuy() {
-    console.log(this.product);
+    this.buy.emit(this.product);
   }
 
 }
