@@ -1,7 +1,7 @@
-import { ProductModel } from './../../models/Product';
 import { Component } from '@angular/core';
-import { ProductsService } from './../../services/products.service';
-import { CartService } from './../../services/cart.service';
+import { ProductModel } from './../../models/Product';
+import { CartModel } from './../../../cart/models/Cart';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,22 +11,21 @@ import { CartService } from './../../services/cart.service';
 export class ProductListComponent {
 
   products: ProductModel[];
-  cartProducts: ProductModel[] = [];
+  cartProducts: CartModel[] = [];
 
-  constructor(public productService: ProductsService,
-              public cartService: CartService) {
+  constructor(public productService: ProductService) {
     this.products = productService.getProducts();
-    this.cartProducts = cartService.getCarts();
+    // this.cartProducts = cartService.getCarts();
   }
 
   onBuy(product: ProductModel): void {
     this.productService.buy(product.id);
-    this.cartService.addToCart(product);
+    // this.cartService.addToCart(product);
   }
 
   onRemove(product: ProductModel): void {
     this.productService.removeFromCart(product.id);
-    this.cartService.removeFromCart(product.id);
+    // this.cartService.removeFromCart(product.id);
   }
 
 }

@@ -5,7 +5,7 @@ import { Products } from './mock-products';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class ProductService {
 
   products: ProductModel[] = [];
 

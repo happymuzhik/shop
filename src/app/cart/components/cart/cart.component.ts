@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ProductModel } from './../../models/Product';
+import { CartModel } from './../../models/Cart';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +8,7 @@ import { ProductModel } from './../../models/Product';
 })
 export class CartComponent {
 
-  @Input() product: ProductModel;
+  @Input() product: CartModel;
   @Output() remove: EventEmitter<any> = new EventEmitter();
 
   constructor() { }

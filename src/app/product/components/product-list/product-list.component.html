@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="products">
+    <h2>Products:</h2>
+    <ng-container *ngFor="let product of products">
+      <app-product [product]="product" (buy)="onBuy($event)"></app-product>
+    </ng-container>
+  </div>
+  <div class="cart">
+    <h2>Cart:</h2>
+    <ng-container *ngFor="let cartProduct of cartProducts">
+      <app-cart [product]="cartProduct" (remove)="onRemove($event)"></app-cart>
+    </ng-container>
+    <div *ngIf="!cartProducts.length">Cart is Empty.</div>
+  </div>
+</div>
