@@ -21,3 +21,6 @@
 * Cart Component placed inside Product List Component
 * added buy and remove actions
 * fixed templates and styles
+
+### Redisign for Task2
+* Created CartModule, ProductModule and CoreModule
