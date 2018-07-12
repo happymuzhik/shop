@@ -14,7 +14,7 @@ export class CartService {
     return this.products;
   }
 
-  addToCart(product: CartModel): void {
+  addToCart(product: any): void {
     this.products.push(new CartModel(product));
   }
 
@@ -25,11 +25,13 @@ export class CartService {
 
   addQuantity(product: CartModel): void {
     product.quantity++;
+    product.sumPrice = product.price * product.quantity;
   }
 
   subQuantity(product: CartModel): void {
-    if (product.quantity > 0){
+    if (product.quantity > 1) {
       product.quantity--;
+      product.sumPrice = product.price * product.quantity;
     }
   }
 }

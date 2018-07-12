@@ -1,6 +1,6 @@
-<div class="cart-product">
-  <div>{{product.name}} | {{product.price}}$</div>
-<div>Quantity: {{product.quantity}}</div>
+<div class="cart-product" appHighlight>
+  <div>{{product.name}} | {{product.sumPrice}}$</div>
+  <div>Quantity: {{product.quantity}}</div>
   <div>
     <button (click)="removeFromCart()">Remove</button>
     <button (click)="onSubQuantity()">-</button>

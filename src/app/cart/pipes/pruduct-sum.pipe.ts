@@ -7,6 +7,6 @@ import { CartModel } from './../models/Cart';
 })
 export class ProductSumPipe implements PipeTransform {
   transform(products: CartModel[]): number {
-    return products.reduce((totalSum, item) => totalSum + item.price, 0);
+    return products.reduce((totalSum, item) => totalSum + item.sumPrice, 0);
   }
 }

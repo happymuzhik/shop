@@ -6,4 +6,15 @@
 <div class="container">
   <app-product-list class="products"></app-product-list>
   <app-cart-list class="cart"></app-cart-list>
+  <div class="demo">
+    <div class="demo-varible">
+      <div>
+        <input type="text" value="test template #varible" #myInput>
+      </div>
+      <div>{{myInput.value}}</div>
+    </div>
+    <div class="demo-view-child">
+      <div #myDemoViewChild></div>
+    </div>
+  </div>
 </div>
