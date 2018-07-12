@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { CartComponent, CartListComponent } from '.';
 import { CartService } from './services/cart.service';
+import { ProductSumPipe } from './pipes/pruduct-sum.pipe';
 
 @NgModule({
-  declarations: [CartComponent, CartListComponent],
+  declarations: [CartComponent, CartListComponent, ProductSumPipe],
   imports: [CommonModule],
-  exports: [CartListComponent],
+  exports: [CartListComponent, ProductSumPipe],
   providers: [CartService]
 })
 export class CartModule { }

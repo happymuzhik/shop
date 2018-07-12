@@ -15,11 +15,21 @@ export class CartService {
   }
 
   addToCart(product: CartModel): void {
-    this.products.push(product);
+    this.products.push(new CartModel(product));
   }
 
   removeFromCart(id: number): void {
     const index = this.products.findIndex((product) => product.id === id);
     this.products.splice(index, 1);
+  }
+
+  addQuantity(product: CartModel): void {
+    product.quantity++;
+  }
+
+  subQuantity(product: CartModel): void {
+    if (product.quantity > 0){
+      product.quantity--;
+    }
   }
 }

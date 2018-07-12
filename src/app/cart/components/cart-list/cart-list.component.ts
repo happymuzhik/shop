@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from './../../../product/services/product.service';
 import { CartService } from './../../services/cart.service';
-import { ProductModel } from './../../../product/models/Product';
 import { CartModel } from './../../models/Cart';
 
 @Component({
@@ -19,9 +18,17 @@ export class CartListComponent {
     this.cartProducts = cartService.getCarts();
   }
 
-  onRemove(product: ProductModel): void {
+  onRemove(product: CartModel): void {
     this.productService.removeFromCart(product.id);
     this.cartService.removeFromCart(product.id);
+  }
+
+  onAddQuantity(product: CartModel): void {
+    this.cartService.addQuantity(product);
+  }
+
+  onSubQuantity(product: CartModel): void {
+    this.cartService.subQuantity(product);
   }
 
 }

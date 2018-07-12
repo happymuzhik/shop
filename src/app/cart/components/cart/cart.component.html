@@ -1,6 +1,9 @@
 <div class="cart-product">
-  <div>{{product.name}} | {{product.price}}</div>
+  <div>{{product.name}} | {{product.price}}$</div>
+<div>Quantity: {{product.quantity}}</div>
   <div>
     <button (click)="removeFromCart()">Remove</button>
+    <button (click)="onSubQuantity()">-</button>
+    <button (click)="onAddQuantity()">+</button>
   </div>
 </div>
