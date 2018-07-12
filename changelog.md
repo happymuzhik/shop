@@ -24,3 +24,14 @@
 
 ### Redisign for Task2
 * Created CartModule, ProductModule and CoreModule
+* Created CartModel
+* Created CartListComponent
+
+### Sum and quantity
+* Quantity added to CartModel
+* Created Pipe for calculating total products price
+* Created add and sub quantity actions in service and component, added buttons in template
+
+### Template Vars and HighlightDirective
+* HighlightDirective created in SharedModule and used in CartComponent
+* Added demo blocks with Template Vars examples
