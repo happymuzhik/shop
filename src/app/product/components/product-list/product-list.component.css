@@ -1,8 +1,0 @@
-.container {
-  display: flex;
-}
-
-.products, .cart {
-  width: 50%;
-  padding: 20px;
-}
