@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ProductService } from './../../../product/services/product.service';
 import { CartService } from './../../services/cart.service';
 import { CartModel } from './../../models/Cart';
@@ -8,14 +9,24 @@ import { CartModel } from './../../models/Cart';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent {
+export class CartListComponent implements OnDestroy {
 
-  products: CartModel[];
+  cartProductsSubscription: Subscription;
   cartProducts: CartModel[] = [];
+  cartProductsSum = 0;
 
   constructor(public cartService: CartService,
               public productService: ProductService) {
-    this.cartProducts = cartService.getCarts();
+    this.cartProductsSubscription = cartService.getCarts()
+      .subscribe(cartProducts => {
+        console.log('cartProducts', cartProducts);
+        this.cartProducts = cartProducts;
+        this.cartProductsSum = this.cartService.getProductsSum();
+      });
+  }
+
+  ngOnDestroy() {
+    this.cartProductsSubscription.unsubscribe();
   }
 
   onRemove(product: CartModel): void {

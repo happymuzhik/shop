@@ -5,12 +5,11 @@ import { SharedModule } from '../shared/shared.module';
 
 import { CartComponent, CartListComponent } from '.';
 import { CartService } from './services/cart.service';
-import { ProductSumPipe } from './pipes/pruduct-sum.pipe';
 
 @NgModule({
-  declarations: [CartComponent, CartListComponent, ProductSumPipe],
+  declarations: [CartComponent, CartListComponent],
   imports: [CommonModule, SharedModule],
-  exports: [CartListComponent, ProductSumPipe],
+  exports: [CartListComponent],
   providers: [CartService]
 })
 export class CartModule { }

@@ -1,6 +1,6 @@
 <div class="cart">
   <h2>Cart:</h2>
-  <h3>Total sum: {{cartProducts | productSum}}$</h3>
+  <h3>Total sum: {{cartProductsSum}}$</h3>
   <ng-container *ngFor="let cartProduct of cartProducts">
     <app-cart
       [product]="cartProduct"
